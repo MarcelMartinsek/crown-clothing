@@ -1,4 +1,4 @@
-import CategoryMenu from './components/category-menu/category-menu.component';
+import Directory from './components/directory/directory.component';
 
 const App = () => {
   const categories = [
@@ -30,7 +30,7 @@ const App = () => {
   ]
 
   return (
-    <CategoryMenu categoryList={categories} />
+    <Directory categoryList={categories} />
   );
 }
 
