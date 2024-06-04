@@ -6,8 +6,12 @@ import {
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
     signOut,
+    onAuthStateChanged,
 } from "firebase/auth";
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
+
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyC4AvxkwSOiyyYdrhKUYP_hwSNRVUXbcoI",
     authDomain: "react-course-db-39faf.firebaseapp.com",
@@ -74,4 +78,9 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
     // });
 }
 
-export const signOutUser = async () => await signOut(auth)
+export const signOutUser = async () => await signOut(auth);
+export const onAuthStateChangedListener = (callback) => {
+    if (callback) {
+        return onAuthStateChanged(auth, callback);
+    }
+}
