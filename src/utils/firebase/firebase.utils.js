@@ -57,17 +57,18 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
 }
 
-export const signInUserWithEmailAndPassword = async (email, password) => {
-    if (!email || !password) return;
+export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+    if (!email || !password) return null;
 
     return signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            // ...
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-        });
+    // .then((userCredential) => {
+    //     // Signed in 
+    //     const user = userCredential.user;
+    //     // ...
+    // })
+    // .catch((error) => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+    //     console.log(errorCode, errorMessage)
+    // });
 }
