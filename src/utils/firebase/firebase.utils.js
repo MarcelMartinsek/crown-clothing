@@ -3,10 +3,10 @@ import {
     getAuth,
     signInWithPopup,
     GoogleAuthProvider,
-    createUserWithEmailAndPassword
+    signInWithEmailAndPassword,
+    createUserWithEmailAndPassword,
 } from "firebase/auth";
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
-// Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyC4AvxkwSOiyyYdrhKUYP_hwSNRVUXbcoI",
     authDomain: "react-course-db-39faf.firebaseapp.com",
@@ -15,6 +15,7 @@ const firebaseConfig = {
     messagingSenderId: "550032041749",
     appId: "1:550032041749:web:3345ea7751e71232786b1c"
 };
+
 
 const firebaseApp = initializeApp(firebaseConfig);
 
@@ -28,6 +29,7 @@ export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
 
 export const db = getFirestore();
+
 
 export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
     if (!userAuth) return;
@@ -53,4 +55,19 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
     if (!email || !password) return;
     return createUserWithEmailAndPassword(auth, email, password);
+}
+
+export const signInUserWithEmailAndPassword = async (email, password) => {
+    if (!email || !password) return;
+
+    return signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            // ...
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+        });
 }
