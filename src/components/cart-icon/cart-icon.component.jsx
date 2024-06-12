@@ -5,14 +5,14 @@ import { CartContext } from '../../contexts/cart.context';
 
 
 const CartIcon = (props) => {
-  const { isCartOpen, setIsCartOpen, cartItems } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
   function handleClick() {
     setIsCartOpen(!isCartOpen)
   }
   return (<div className='cart-icon-container' onClick={handleClick}>
     <ShoppingIcon className='shopping-icon' />
     <span className='item-count'>
-      {cartItems.reduce((sum, item) => (sum + item.quantity), 0)}
+      {cartCount}
     </span>
   </div>)
 }
