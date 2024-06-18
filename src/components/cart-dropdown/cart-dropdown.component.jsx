@@ -13,10 +13,14 @@ const CartDropdown = (props) => {
   }
   return (
     <CartDropdownContainer>
-      {(cartItems.length === 0) && (<CartDropdownEmpty>Your cart is empty.</CartDropdownEmpty>)}
-      <CartDropdownItems>
-        {cartItems.map(item => <CartItem cartItem={item} key={item.id}></CartItem>)}
-      </CartDropdownItems>
+      {
+        (cartItems.length === 0) ?
+          (<CartDropdownEmpty>Your cart is empty.</CartDropdownEmpty>)
+          :
+          (<CartDropdownItems>
+            {cartItems.map(item => <CartItem cartItem={item} key={item.id}></CartItem>)}
+          </CartDropdownItems>)
+      }
       <Button onClick={goToCheckoutHandler}>Go To Checkout</Button>
     </CartDropdownContainer >
   )

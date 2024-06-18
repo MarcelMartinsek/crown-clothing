@@ -37,7 +37,8 @@ margin: 50px auto;
 `
 
 export const CartDropdownItems = styled.div`
-height: 240px;
+height: fit-content;
+max-height: 240px;
 display: flex;
 flex-direction: column;
 overflow-y: auto;
