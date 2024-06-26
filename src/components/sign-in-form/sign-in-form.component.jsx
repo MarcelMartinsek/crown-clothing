@@ -32,9 +32,7 @@ const SignInForm = (props) => {
         event.preventDefault()
         const { email, password } = formFields
         try {
-            console.log(email, password)
             const response = await signInAuthUserWithEmailAndPassword(email, password);
-            console.log(response)
             resetFormFields();
         } catch (error) {
             switch (error.code) {
@@ -47,7 +45,7 @@ const SignInForm = (props) => {
 
                 default:
                     alert("User sign-in encountered an error:", error)
-                    console.log(error)
+                    // console.log(error)
                     break;
             }
         }

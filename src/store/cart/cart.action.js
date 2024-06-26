@@ -43,7 +43,6 @@ export const setIsCartOpen = (bool) =>
 
 export function addItemToCart(productToAdd, cartItems) {
     const newItems = addCartItem(cartItems, productToAdd)
-    console.log(newItems)
     return setCartItems(newItems)
 }
 

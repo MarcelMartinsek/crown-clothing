@@ -56,7 +56,6 @@ export async function addCollectionAndDocuments(collectionKey, objectsToAdd) {
     });
 
     await batch.commit();
-    console.log("done");
 }
 
 export async function getCategoriesAndDocuments() {
@@ -84,7 +83,8 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
                 ...additionalInformation
             });
         } catch (error) {
-            console.log("Error during user creation.", error.message);
+            alert("User creation encountered an error:", error)
+            // console.log("Error during user creation.", error.message);
         }
     }
 };

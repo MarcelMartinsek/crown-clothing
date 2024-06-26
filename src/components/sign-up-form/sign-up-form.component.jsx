@@ -25,7 +25,6 @@ const SignUpForm = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault()
-        console.log(formFields)
         const { displayName, email, password, confirmPassword } = formFields
         if (!(password === confirmPassword)) {
             alert("Password confirmation Failed")
@@ -40,7 +39,7 @@ const SignUpForm = () => {
             if (error.code == 'auth/email-already-in-use') {
                 alert("Email already in use!")
             }
-            console.log("User creation encountered an error:", error);
+            // console.log("User creation encountered an error:", error);
         }
     }
     const handleChange = (event) => {
