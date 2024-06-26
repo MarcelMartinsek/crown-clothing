@@ -58,8 +58,8 @@ export async function addCollectionAndDocuments(collectionKey, objectsToAdd) {
     await batch.commit();
 }
 
-export async function getCategoriesAndDocuments() {
-    const collectionRef = collection(db, 'categories');
+export async function getCategoriesAndDocuments(collection_name) {
+    const collectionRef = collection(db, collection_name);
     const q = query(collectionRef);
 
     const qSnapshot = await getDocs(q);
