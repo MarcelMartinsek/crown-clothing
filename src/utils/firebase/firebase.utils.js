@@ -17,7 +17,6 @@ import {
     writeBatch,
     query,
     getDocs,
-    QuerySnapshot
 } from 'firebase/firestore'
 
 
@@ -32,7 +31,8 @@ const firebaseConfig = {
 };
 
 
-const firebaseApp = initializeApp(firebaseConfig);
+// const firebaseApp = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
 

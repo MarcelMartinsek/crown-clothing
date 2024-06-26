@@ -15,7 +15,7 @@ const Shop = (props) => {
       dispatch(setCategories(categoryArray));
     }
     getCategoriesArray();
-  }, []);
+  }, [dispatch]);
 
 
 

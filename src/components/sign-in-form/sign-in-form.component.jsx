@@ -1,5 +1,5 @@
 import { SignInContainer, OpeningQuestion, ButtonsContainer } from './sign-in-form.styles'
-import { signInAuthUserWithEmailAndPassword, signInWithGooglePopup, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
+import { signInAuthUserWithEmailAndPassword, signInWithGooglePopup } from '../../utils/firebase/firebase.utils';
 import { useState } from 'react';
 import FormInput from '../form-input/form-input.component';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
@@ -32,7 +32,7 @@ const SignInForm = (props) => {
         event.preventDefault()
         const { email, password } = formFields
         try {
-            const response = await signInAuthUserWithEmailAndPassword(email, password);
+            await signInAuthUserWithEmailAndPassword(email, password);
             resetFormFields();
         } catch (error) {
             switch (error.code) {
