@@ -64,15 +64,7 @@ export async function getCategoriesAndDocuments() {
     const q = query(collectionRef);
 
     const qSnapshot = await getDocs(q);
-    const categoryMap = qSnapshot.docs.reduce((accumulator, docSnapshot) => {
-        const { title, items } = docSnapshot.data();
-        accumulator[title.toLowerCase()] = items
-
-        return accumulator
-    }, {})
-
-
-    return categoryMap
+    return qSnapshot.docs.map(docSnapshot => docSnapshot.data());
 }
 
 
